@@ -20,13 +20,13 @@ class Cell:
         return Cell(self.__number // other.__number)
 
     def make_order(self, rows):
-        first_part = (self.__number - 1) // rows
+        first_part = max(0, (self.__number - 1) // rows)
         return ('*' * rows + '\n') * first_part + ('*' * (self.__number - first_part * rows))
 
     def __str__(self):
         return f'{self.__number}'
 
-str = Cell(12).make_order(5)
+str = Cell(0).make_order(5)
 str = Cell(11).make_order(5)
 str = Cell(10).make_order(5)
 str = Cell(0).make_order(5)
